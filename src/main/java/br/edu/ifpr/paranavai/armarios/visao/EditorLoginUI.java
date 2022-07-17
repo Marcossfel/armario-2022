@@ -11,7 +11,7 @@ import br.edu.ifpr.paranavai.armarios.controle.LoginControlador;
  * @author teren
  */
 public class EditorLoginUI extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form AuthEditorUI
      */
@@ -28,6 +28,8 @@ public class EditorLoginUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jColorChooser5 = new javax.swing.JColorChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtFieldEmail = new javax.swing.JTextField();
@@ -35,10 +37,32 @@ public class EditorLoginUI extends javax.swing.JFrame {
         passFieldSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         lblResposta = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jColorChooser1 = new javax.swing.JColorChooser();
+        jColorChooser2 = new javax.swing.JColorChooser();
+        jColorChooser3 = new javax.swing.JColorChooser();
+        jColorChooser4 = new javax.swing.JColorChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela de Login");
+
+        jPanel1.setToolTipText("");
+        jPanel1.setLayout(null);
 
         jLabel1.setText("E-mail");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(80, 120, 37, 16);
 
         txtFieldEmail.setText("Insira o e-mail");
         txtFieldEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -46,10 +70,16 @@ public class EditorLoginUI extends javax.swing.JFrame {
                 txtFieldEmailActionPerformed(evt);
             }
         });
+        jPanel1.add(txtFieldEmail);
+        txtFieldEmail.setBounds(80, 140, 246, 24);
 
         jLabel2.setText("Senha");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(80, 170, 37, 16);
 
         passFieldSenha.setText("jPasswordField1");
+        jPanel1.add(passFieldSenha);
+        passFieldSenha.setBounds(80, 190, 246, 22);
 
         jButton1.setText("Autenticar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,45 +87,25 @@ public class EditorLoginUI extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(170, 230, 66, 24);
 
         lblResposta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lblResposta);
+        lblResposta.setBounds(0, 276, 400, 0);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                            .addComponent(passFieldSenha)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jButton1)))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addComponent(lblResposta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(lblResposta)
-                .addGap(28, 28, 28))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/armario.jpg"))); // NOI18N
+        jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(-70, 0, 470, 310);
+        jPanel1.add(jColorChooser1);
+        jColorChooser1.setBounds(10, -20, 886, 555);
+        jPanel1.add(jColorChooser2);
+        jColorChooser2.setBounds(70, -30, 886, 555);
+        jPanel1.add(jColorChooser3);
+        jColorChooser3.setBounds(-40, 0, 886, 555);
+        jPanel1.add(jColorChooser4);
+        jColorChooser4.setBounds(-60, -10, 886, 555);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,6 +117,9 @@ public class EditorLoginUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("");
+        jPanel1.getAccessibleContext().setAccessibleDescription("Tela de login");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,7 +147,7 @@ public class EditorLoginUI extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -161,9 +174,16 @@ public class EditorLoginUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JColorChooser jColorChooser2;
+    private javax.swing.JColorChooser jColorChooser3;
+    private javax.swing.JColorChooser jColorChooser4;
+    private javax.swing.JColorChooser jColorChooser5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblResposta;
     private javax.swing.JPasswordField passFieldSenha;
     private javax.swing.JTextField txtFieldEmail;
