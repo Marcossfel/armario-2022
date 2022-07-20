@@ -30,18 +30,15 @@ public class EditorLoginUI extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jColorChooser5 = new javax.swing.JColorChooser();
+        jColorChooser1 = new javax.swing.JColorChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtFieldEmail = new javax.swing.JTextField();
+        Email = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        passFieldSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        Senha = new javax.swing.JPasswordField();
+        Entrar = new javax.swing.JButton();
         lblResposta = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jColorChooser1 = new javax.swing.JColorChooser();
-        jColorChooser2 = new javax.swing.JColorChooser();
-        jColorChooser3 = new javax.swing.JColorChooser();
-        jColorChooser4 = new javax.swing.JColorChooser();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -60,35 +57,49 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("E-mail");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(80, 120, 37, 16);
 
-        txtFieldEmail.setText("Insira o e-mail");
-        txtFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+        Email.setBackground(new java.awt.Color(255, 255, 255));
+        Email.setForeground(new java.awt.Color(0, 0, 0));
+        Email.setText("admin@admin.com");
+        Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldEmailActionPerformed(evt);
+                EmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFieldEmail);
-        txtFieldEmail.setBounds(80, 140, 246, 24);
+        jPanel1.add(Email);
+        Email.setBounds(80, 140, 246, 24);
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Senha");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(80, 170, 37, 16);
 
-        passFieldSenha.setText("jPasswordField1");
-        jPanel1.add(passFieldSenha);
-        passFieldSenha.setBounds(80, 190, 246, 22);
-
-        jButton1.setText("Autenticar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Senha.setBackground(new java.awt.Color(255, 255, 255));
+        Senha.setForeground(new java.awt.Color(0, 0, 0));
+        Senha.setText("12345");
+        Senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(170, 230, 66, 24);
+        jPanel1.add(Senha);
+        Senha.setBounds(80, 190, 246, 22);
+
+        Entrar.setBackground(new java.awt.Color(153, 153, 153));
+        Entrar.setForeground(new java.awt.Color(255, 255, 255));
+        Entrar.setText("Entrar");
+        Entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Entrar);
+        Entrar.setBounds(160, 220, 100, 24);
 
         lblResposta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblResposta);
@@ -98,24 +109,16 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
         jPanel1.add(jLabel3);
         jLabel3.setBounds(-70, 0, 470, 310);
-        jPanel1.add(jColorChooser1);
-        jColorChooser1.setBounds(10, -20, 886, 555);
-        jPanel1.add(jColorChooser2);
-        jColorChooser2.setBounds(70, -30, 886, 555);
-        jPanel1.add(jColorChooser3);
-        jColorChooser3.setBounds(-40, 0, 886, 555);
-        jPanel1.add(jColorChooser4);
-        jColorChooser4.setBounds(-60, -10, 886, 555);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -124,17 +127,20 @@ public class EditorLoginUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldEmailActionPerformed
+    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFieldEmailActionPerformed
+    }//GEN-LAST:event_EmailActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LoginControlador controle = new LoginControlador();
-        String email = this.txtFieldEmail.getText();
-        String senha = String.copyValueOf(this.passFieldSenha.getPassword());
-        String resposta = controle.verifica(email, senha);
+    private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
+        String email = this.Email.getText();
+        String senha = String.copyValueOf(this.Senha.getPassword());
+        String resposta = LoginControlador.verifica(email, senha);
         lblResposta.setText(resposta);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_EntrarActionPerformed
+
+    private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,32 +158,26 @@ public class EditorLoginUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditorLoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditorLoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditorLoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EditorLoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
+        
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditorLoginUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new EditorLoginUI().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField Email;
+    private javax.swing.JButton Entrar;
+    private javax.swing.JPasswordField Senha;
     private javax.swing.JColorChooser jColorChooser1;
-    private javax.swing.JColorChooser jColorChooser2;
-    private javax.swing.JColorChooser jColorChooser3;
-    private javax.swing.JColorChooser jColorChooser4;
     private javax.swing.JColorChooser jColorChooser5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -185,7 +185,5 @@ public class EditorLoginUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblResposta;
-    private javax.swing.JPasswordField passFieldSenha;
-    private javax.swing.JTextField txtFieldEmail;
     // End of variables declaration//GEN-END:variables
 }
