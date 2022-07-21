@@ -5,6 +5,7 @@
 package br.edu.ifpr.paranavai.armarios.visao;
 
 import br.edu.ifpr.paranavai.armarios.controle.LoginControlador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,15 +30,12 @@ public class EditorLoginUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jColorChooser5 = new javax.swing.JColorChooser();
-        jColorChooser1 = new javax.swing.JColorChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Email = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Senha = new javax.swing.JPasswordField();
         Entrar = new javax.swing.JButton();
-        lblResposta = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -101,10 +99,6 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jPanel1.add(Entrar);
         Entrar.setBounds(160, 220, 100, 24);
 
-        lblResposta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lblResposta);
-        lblResposta.setBounds(0, 276, 400, 0);
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/armario.jpg"))); // NOI18N
         jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
         jPanel1.add(jLabel3);
@@ -135,7 +129,8 @@ public class EditorLoginUI extends javax.swing.JFrame {
         String email = this.Email.getText();
         String senha = String.copyValueOf(this.Senha.getPassword());
         String resposta = LoginControlador.verifica(email, senha);
-        lblResposta.setText(resposta);
+        System.out.println(resposta);
+        JOptionPane.showMessageDialog(null,resposta);
     }//GEN-LAST:event_EntrarActionPerformed
 
     private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
@@ -177,13 +172,10 @@ public class EditorLoginUI extends javax.swing.JFrame {
     private javax.swing.JTextField Email;
     private javax.swing.JButton Entrar;
     private javax.swing.JPasswordField Senha;
-    private javax.swing.JColorChooser jColorChooser1;
-    private javax.swing.JColorChooser jColorChooser5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblResposta;
     // End of variables declaration//GEN-END:variables
 }
