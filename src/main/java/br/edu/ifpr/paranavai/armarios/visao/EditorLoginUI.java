@@ -63,7 +63,6 @@ public class EditorLoginUI extends javax.swing.JFrame {
 
         Email.setBackground(new java.awt.Color(255, 255, 255));
         Email.setForeground(new java.awt.Color(0, 0, 0));
-        Email.setText("admin@admin.com");
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailActionPerformed(evt);
@@ -102,7 +101,7 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/armario.jpg"))); // NOI18N
         jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(-70, 0, 470, 310);
+        jLabel3.setBounds(-70, 0, 480, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
