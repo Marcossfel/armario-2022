@@ -9,14 +9,14 @@ package br.edu.ifpr.paranavai.armarios.servico;
  * @author Jessica
  */
 public class ReservaServico {
-    public static String verifica(String nome, String ra){
-       if (nome.equals("Marcos")){
-           if (ra.equals("123")){
-                return "Sucesso na reserva!";
+    public static String verifica(String ra, String nome){
+       if (ra.equals("20020227585")){
+           if (nome.equals("marcos")){
+                return "Reserva realizada com sucesso!";
            }
-           return "Ra inválido!";
+           return "Nome inválido!";
        }
-       return "Nome inválido!";         
+       return "Ra inválido!";         
     }
     
 
