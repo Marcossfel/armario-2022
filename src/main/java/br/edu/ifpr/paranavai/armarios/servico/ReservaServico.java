@@ -18,6 +18,5 @@ public class ReservaServico {
        }
        return "Ra inválido!";         
     }
-    
-
+        
 }

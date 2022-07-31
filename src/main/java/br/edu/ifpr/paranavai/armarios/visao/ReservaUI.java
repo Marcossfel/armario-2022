@@ -271,7 +271,18 @@ public class ReservaUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_NomeActionPerformed
 
     private void PesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaActionPerformed
-        // TODO add your handling code here:
+
+        //if (Ra.equals("20020227585")){
+        pesquisa();
+        DateFormat dateSistema = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        Data.setText(dateSistema.format(date));
+        
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date data = new Date();
+        Hora.setText(dateFormat.format(data));
+        
+       //}   
     }//GEN-LAST:event_PesquisaActionPerformed
 
     private void DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataActionPerformed
@@ -293,7 +304,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         Date data = new Date();
-        Hora.setText(dateFormat.format(date));
+        Hora.setText(dateFormat.format(data));
     }//GEN-LAST:event_NovoActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
@@ -309,7 +320,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void RaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_RaActionPerformed
 
 
@@ -355,7 +366,18 @@ public void novo(){
     Observacoes.setText("");
     
 }
-
+public void pesquisa(){
+    Nome.setEnabled(true);
+    Nome.setText("marcos");
+    Data.setEnabled(true);
+    Hora.setEnabled(true);
+    Numero.setEnabled(true);
+    Observacoes.setEnabled(true);
+    Pesquisa.setEnabled(true);
+    Ra.setEnabled(true);
+    Salvar.setEnabled(true);
+    Status.setEnabled(true);
+}
 
 
 }// fimm da classe principal

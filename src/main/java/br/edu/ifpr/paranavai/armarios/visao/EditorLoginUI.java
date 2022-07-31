@@ -36,7 +36,7 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Senha = new javax.swing.JPasswordField();
         Entrar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        LabelPrincipal = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,7 +78,6 @@ public class EditorLoginUI extends javax.swing.JFrame {
 
         Senha.setBackground(new java.awt.Color(255, 255, 255));
         Senha.setForeground(new java.awt.Color(0, 0, 0));
-        Senha.setText("12345");
         Senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SenhaActionPerformed(evt);
@@ -98,10 +97,10 @@ public class EditorLoginUI extends javax.swing.JFrame {
         jPanel1.add(Entrar);
         Entrar.setBounds(160, 220, 100, 24);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/armario.jpg"))); // NOI18N
-        jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(-70, 0, 480, 310);
+        LabelPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/armario.jpg"))); // NOI18N
+        LabelPrincipal.setMinimumSize(new java.awt.Dimension(500, 300));
+        jPanel1.add(LabelPrincipal);
+        LabelPrincipal.setBounds(-50, 0, 480, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,6 +129,11 @@ public class EditorLoginUI extends javax.swing.JFrame {
         String resposta = LoginControlador.verifica(email, senha);
         System.out.println(resposta);
         JOptionPane.showMessageDialog(null,resposta);
+        
+        TelaPrincipal obj = new TelaPrincipal();
+        obj.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_EntrarActionPerformed
 
     private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
@@ -170,10 +174,10 @@ public class EditorLoginUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Email;
     private javax.swing.JButton Entrar;
+    private javax.swing.JLabel LabelPrincipal;
     private javax.swing.JPasswordField Senha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
