@@ -11,7 +11,7 @@ import br.edu.ifpr.paranavai.armarios.servico.ReservaServico;
  * @author Jessica
  */
 public class ReservaControlador {
-    public static String verifica(String nome, String ra) {
-        return ReservaServico.verifica(nome,ra);
+    public static String verifica(String ra, String nome,String numero,String status,boolean reserva,boolean devolucao) {
+        return ReservaServico.verifica(ra, nome,numero,status,reserva,devolucao);
     }
 }

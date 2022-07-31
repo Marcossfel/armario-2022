@@ -5,10 +5,13 @@
 package br.edu.ifpr.paranavai.armarios.visao;
 
 
+
+import br.edu.ifpr.paranavai.armarios.controle.ReservaControlador;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import javax.swing.JOptionPane;
+
 
 
 
@@ -154,6 +157,11 @@ public class ReservaUI extends javax.swing.JInternalFrame {
 
         Salvar.setText("Salvar");
         Salvar.setEnabled(false);
+        Salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarActionPerformed(evt);
+            }
+        });
 
         Sair.setText("Sair");
         Sair.addActionListener(new java.awt.event.ActionListener() {
@@ -272,8 +280,14 @@ public class ReservaUI extends javax.swing.JInternalFrame {
 
     private void PesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaActionPerformed
 
-        //if (Ra.equals("20020227585")){
-        pesquisa();
+        if ("20020227585".equals(Ra.getText())){
+        pesquisaRa();
+        
+        }
+        if ("Marcos Felipe da Silva Ribeiro".equals(Nome.getText())){
+        pesquisaNome();
+        }
+        
         DateFormat dateSistema = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         Data.setText(dateSistema.format(date));
@@ -282,7 +296,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         Date data = new Date();
         Hora.setText(dateFormat.format(data));
         
-       //}   
+          
     }//GEN-LAST:event_PesquisaActionPerformed
 
     private void DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataActionPerformed
@@ -322,6 +336,18 @@ public class ReservaUI extends javax.swing.JInternalFrame {
     private void RaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaActionPerformed
         
     }//GEN-LAST:event_RaActionPerformed
+
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
+        String ra = this.Ra.getText();
+        String nome = this.Nome.getText();
+        String numero = this.Numero.getText();
+        String status = (String) this.Status.getSelectedItem();
+        boolean reserva = this.Reserva.isSelected();
+        boolean devolucao = this.Devolucao.isSelected();
+        String retorno = ReservaControlador.verifica(ra, nome,numero,status,reserva,devolucao);
+        System.out.println(retorno);
+        JOptionPane.showMessageDialog(null,retorno);
+    }//GEN-LAST:event_SalvarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -366,14 +392,27 @@ public void novo(){
     Observacoes.setText("");
     
 }
-public void pesquisa(){
+public void pesquisaRa(){
     Nome.setEnabled(true);
-    Nome.setText("marcos");
+    Nome.setText("Marcos Felipe da Silva Ribeiro");
     Data.setEnabled(true);
     Hora.setEnabled(true);
     Numero.setEnabled(true);
     Observacoes.setEnabled(true);
     Pesquisa.setEnabled(true);
+    Ra.setEnabled(true);
+    Salvar.setEnabled(true);
+    Status.setEnabled(true);
+}
+    public void pesquisaNome(){
+    Nome.setEnabled(true);
+    Nome.setEnabled(true);
+    Data.setEnabled(true);
+    Hora.setEnabled(true);
+    Numero.setEnabled(true);
+    Observacoes.setEnabled(true);
+    Pesquisa.setEnabled(true);
+    Ra.setText("20020227585");
     Ra.setEnabled(true);
     Salvar.setEnabled(true);
     Status.setEnabled(true);
