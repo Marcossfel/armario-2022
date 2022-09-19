@@ -36,4 +36,8 @@ public class Armario {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
+
+    public void setAtivo(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
