@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 public class LocalizacaoDaoImpl implements LocalizacaoDao {
 
-    private final Session sessao;
+    private Session sessao;
 
     public LocalizacaoDaoImpl() {
         this.sessao = HibernateUtil.getSession();

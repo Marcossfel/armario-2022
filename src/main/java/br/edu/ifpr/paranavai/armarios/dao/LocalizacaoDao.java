@@ -10,4 +10,3 @@ public interface LocalizacaoDao {
     public void atualizar(Localizacao localizacao);
     public void excluir(Localizacao localizacao);
 }
-
