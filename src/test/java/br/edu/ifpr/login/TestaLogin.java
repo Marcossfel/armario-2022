@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class TestaLogin {
     
-    private String emailInvalido = "bleble@blabla.com";
-    private String senhaInvalida = "13579";
+    private final String emailInvalido = "bleble@blabla.com";
+    private final String senhaInvalida = "13579";
     
-    private String emailValido = "admin@admin.com";
-    private String senhaValida = "12345";
+    private final String emailValido = "admin@admin.com";
+    private final String senhaValida = "12345";
     
     @Test
     public void autenticacaoOk(){

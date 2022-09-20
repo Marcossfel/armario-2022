@@ -1,16 +1,45 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "tb_armario")
 public class Armario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_armario", unique = true, nullable = false)
+    private Integer armarioId;
+    
+    
+    @Column(name = "numero", unique = true, nullable = false)
     private String numero;
-    private boolean status;
+    
+    @Column(name = "ativo", unique = true, nullable = false, length = 100)
+    private boolean ativo;
+    
+    @Column(name = "observacoes", unique = true, nullable = false, length = 100)
     private String observacoes;
 
     public Armario() {
     }
 
-    public Armario(String numero, boolean status, String observacoes) {
+    public Armario(String numero, boolean ativo, String observacoes) {
         this.numero = numero;
-        this.status = status;
+        this.ativo = ativo;
         this.observacoes = observacoes;
+    }
+
+    public Integer getArmarioId() {
+        return armarioId;
+    }
+
+    public void setArmarioId(Integer armarioId) {
+        this.armarioId = armarioId;
     }
 
     public String getNumero() {
@@ -21,12 +50,12 @@ public class Armario {
         this.numero = numero;
     }
 
-    public boolean getStatus() {
-        return status;
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public String getObservacoes() {
@@ -36,8 +65,6 @@ public class Armario {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-
-    public void setAtivo(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    
 }
