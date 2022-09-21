@@ -2,50 +2,50 @@
 package br.edu.ifpr.paranavai.armarios.dao;
 
 import br.edu.ifpr.paranavai.armarios.conexao.HibernateUtil;
-import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
+import br.edu.ifpr.paranavai.armarios.modelo.Armario;
 import java.util.List;
 import org.hibernate.Session;
 
 
-public class EstudanteDaolmpl implements EstudanteDao {
-private Session sessao;
+public class ArmarioDaoImpl implements ArmarioDao {
+    private Session sessao;
 
-    public EstudanteDaolmpl() {
+    public ArmarioDaoImpl() {
         this.sessao = HibernateUtil.getSession();
     }
+
     @Override
-    public List<Estudante> buscarTodos() {
-        List<Estudante> Estudantes = null;
+    public List<Armario> buscarTodos() {
+        List<Armario> armarios = null;
         try {
             sessao.beginTransaction();
-            Estudantes = (List<Estudante>) this.sessao.createQuery("from Localizacao").list();
+            armarios = (List<Armario>) this.sessao.createQuery("from Armario").list();
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Estudantes;
+        return armarios;
     
     }
 
     @Override
-    public Estudante buscarPorId(Integer id) {
-            Estudante Estudante = null;
+    public Armario buscarPorId(Integer id) {
+        Armario armario = null;
         try {
             sessao.beginTransaction();
-            Estudante = (Estudante) sessao.get(Estudante.class, id);
+            armario = (Armario) sessao.get(Armario.class, id);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Estudante;
-    
+        return armario;
     }
 
     @Override
-    public void inserir(Estudante estudante) {
-           try {
+    public void inserir(Armario armario) {
+         try {
             sessao.beginTransaction();
-            sessao.update(estudante);
+            sessao.update(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,24 +53,24 @@ private Session sessao;
     }
 
     @Override
-    public void atualizar(Estudante estudante) {
-        try {
+    public void atualizar(Armario armario) {
+         try {
             sessao.beginTransaction();
-            sessao.update(estudante);
+            sessao.update(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-      }
+        }
     }
+
     @Override
-    public void excluir(Estudante estudante) {
+    public void excluir(Armario armario) {
         try {
             sessao.beginTransaction();
-            sessao.update(estudante);
+            sessao.update(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
      }
-   }
+    }
 }
-

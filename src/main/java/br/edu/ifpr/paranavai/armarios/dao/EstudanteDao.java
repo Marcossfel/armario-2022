@@ -8,8 +8,8 @@ import java.util.List;
 public interface EstudanteDao {
     public List<Estudante> buscarTodos();
     public Estudante buscarPorId(Integer id);
-    public void inserir(Estudante Estudante);
-    public void atualizar(Estudante localizacao);
-    public void excluir(Estudante Estudante);
+    public void inserir(Estudante estudante);
+    public void atualizar(Estudante estudante);
+    public void excluir(Estudante estudante);
 }
 

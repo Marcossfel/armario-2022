@@ -1,20 +1,47 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
-import br.edu.ifpr.paranavai.armarios.modelo.Pessoa;
-import br.edu.ifpr.paranavai.armarios.modelo.Armario;
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "tb_Reserva")
 public class Reserva {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_reserva", unique = true, nullable = false)
+    private Integer reservaId;
+    
+    @Column(name = "estudante", nullable = false, length = 100) 
     private Estudante estudante;
+    
+    @Column(name = "armario", nullable = false, length = 100)
     private Armario armario;
+    
+    @Column(name = "dataDevolucao", nullable = false, length = 100)
     private Date dataDevolucao;
+    
+    @Column(name = "horaDevolucao", nullable = false, length = 100)
     private Date horaDevolucao;
+    
+    @Column(name = "dataEmprestimo", nullable = false, length = 100)
     private Date dataEmprestimo;
+    
+    @Column(name = "horaEmprestimo", nullable = false, length = 100)
     private Date horaEmprestimo;
    
 
+    
     public Reserva() {
+    
     }
-
     public Reserva(Estudante estudante, Armario armario, Date dataHoraDevolucao, Date dataHoraEmprestimo) {
         this.estudante = estudante;
         this.armario = armario;

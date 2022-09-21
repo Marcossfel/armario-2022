@@ -1,14 +1,42 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Pessoa {
+@Entity
+@Table(name = "tb_pessoa")
+public class Pessoa{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_pessoa", unique = true, nullable = false)
+    private Integer pessoaId;
+    
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
+    
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
+    
+    @Column(name = "telefone", nullable = false, length = 100)
     private String telefone;
+    
+    @Column(name = "senha", nullable = false, length = 100)
     private String senha;
+    
+    @Column(name = "ativo", unique = true, nullable = false, length = 100)
     private boolean ativo;
+    
+    @Column(name = "dataAtualizacao", nullable = false, length = 100)
     private Date dataAtualizacao;
+    
+    @Column(name = "dataCriacao", nullable = false, length = 100)
     private Date dataCriacao;
     
     public Pessoa() {
