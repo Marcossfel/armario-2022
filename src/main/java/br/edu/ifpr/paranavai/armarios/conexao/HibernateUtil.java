@@ -1,7 +1,6 @@
 
 package br.edu.ifpr.paranavai.armarios.conexao;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +11,7 @@ public class HibernateUtil {
         try {
              // Criação da SessionFactory a partir do hibernate.cfg.xml
             SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        } catch (HibernateException ex) {
+        } catch (Throwable ex) {
             System.err.println("Criação Inicial da SessionFactory falhou! " + ex);
             throw new ExceptionInInitializerError(ex);
         }

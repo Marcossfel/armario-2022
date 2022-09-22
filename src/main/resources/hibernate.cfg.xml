@@ -6,11 +6,11 @@
     <property name="hibernate.connection.driver_class">
       com.mysql.jdbc.Driver
     </property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"></property>
     <property name="hibernate.connection.url">
       jdbc:mysql://localhost/emprestimo
     </property>
-    <property name="hibernate.connection.username">root</property>
     <property name="hibernate.dialect">
       org.hibernate.dialect.MySQL8Dialect
     </property>
@@ -23,12 +23,13 @@
     <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Localizacao" />
 
     <!-- Classes que serão persistidas em sala e/ou trabalho -->
-    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario" />
-    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Estudante" />
-    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Localizacao" />
-    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Pessoa" />
-    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Reserva" />
     
+      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario" />
+      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Estudante" />
+      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Localizacao" />
+      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Pessoa" />
+    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Reserva" />
+   
 
   </session-factory>
 </hibernate-configuration>
