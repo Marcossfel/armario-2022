@@ -9,6 +9,7 @@ public class ServicoTeste {
 
     public static void main(String[] args) {
         Localizacao local = new Localizacao("Biblioteca");
+        
         LocalizacaoServico.inserir(local);
     }
 }

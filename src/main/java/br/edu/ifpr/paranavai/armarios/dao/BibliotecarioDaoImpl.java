@@ -3,7 +3,6 @@ package br.edu.ifpr.paranavai.armarios.dao;
 
 import br.edu.ifpr.paranavai.armarios.conexao.HibernateUtil;
 import br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario;
-import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
 import java.util.List;
 import org.hibernate.Session;
 

@@ -24,10 +24,10 @@
 
     <!-- Classes que serão persistidas em sala e/ou trabalho -->
     
-      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario" />
-      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Estudante" />
-      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Localizacao" />
-      <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Pessoa" />
+    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario" />
+    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Estudante" />
+    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Localizacao" />
+    <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Pessoa" />
     <mapping class="br.edu.ifpr.paranavai.armarios.modelo.Reserva" />
    
 
