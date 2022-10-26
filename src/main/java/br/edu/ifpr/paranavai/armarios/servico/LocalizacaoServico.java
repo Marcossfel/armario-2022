@@ -17,8 +17,8 @@ public class LocalizacaoServico {
         return dao.buscarPorId(id);
     }
 
-    public static void inserir(Localizacao localizacao) {
-        dao.inserir(localizacao);
+    public static Localizacao inserir(Localizacao localizacao) {
+        return dao.inserir(localizacao);
     }
 
     public static void atualizar(Localizacao localizacao) {

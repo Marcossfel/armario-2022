@@ -1,6 +1,5 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "tb_armario")
 public class Armario {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_armario", unique = true, nullable = false)

@@ -40,7 +40,7 @@ public class LocalizacaoDaoImpl implements LocalizacaoDao {
     }
 
     @Override
-    public void inserir(Localizacao localizacao) {
+    public Localizacao inserir(Localizacao localizacao) {
         try {
             sessao.beginTransaction();
             sessao.persist(localizacao);
@@ -48,6 +48,7 @@ public class LocalizacaoDaoImpl implements LocalizacaoDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return localizacao;
     }
 
     @Override

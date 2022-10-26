@@ -6,8 +6,8 @@ import br.edu.ifpr.paranavai.armarios.modelo.Armario;
 import java.util.List;
 import org.hibernate.Session;
 
-
 public class ArmarioDaoImpl implements ArmarioDao {
+
     private Session sessao;
 
     public ArmarioDaoImpl() {
@@ -25,9 +25,8 @@ public class ArmarioDaoImpl implements ArmarioDao {
             e.printStackTrace();
         }
         return armarios;
-    
     }
-
+    
     @Override
     public Armario buscarPorId(Integer id) {
         Armario armario = null;
@@ -43,9 +42,9 @@ public class ArmarioDaoImpl implements ArmarioDao {
 
     @Override
     public void inserir(Armario armario) {
-         try {
+        try {
             sessao.beginTransaction();
-            sessao.update(armario);
+            sessao.persist(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +53,7 @@ public class ArmarioDaoImpl implements ArmarioDao {
 
     @Override
     public void atualizar(Armario armario) {
-         try {
+        try {
             sessao.beginTransaction();
             sessao.update(armario);
             sessao.getTransaction().commit();
@@ -67,10 +66,10 @@ public class ArmarioDaoImpl implements ArmarioDao {
     public void excluir(Armario armario) {
         try {
             sessao.beginTransaction();
-            sessao.update(armario);
+            sessao.delete(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-     }
+        }
     }
 }

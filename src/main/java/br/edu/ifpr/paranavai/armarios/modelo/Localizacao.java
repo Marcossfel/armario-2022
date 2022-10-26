@@ -1,6 +1,6 @@
-
 package br.edu.ifpr.paranavai.armarios.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +10,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_localizacao")
-public class Localizacao {
-
+public class Localizacao implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_localizacao", unique = true, nullable = false)
