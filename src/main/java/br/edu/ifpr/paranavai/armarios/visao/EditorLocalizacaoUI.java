@@ -127,6 +127,15 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblLocalizacao.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblLocalizacaoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(tblLocalizacao);
 
         painelInferior.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -150,6 +159,10 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
         
         populaTabela(filtrado);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void tblLocalizacaoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblLocalizacaoAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblLocalizacaoAncestorAdded
 
     /**
      * @param args the command line arguments

@@ -3,6 +3,7 @@ package br.edu.ifpr.paranavai.armarios.dao;
 
 import br.edu.ifpr.paranavai.armarios.conexao.HibernateUtil;
 import br.edu.ifpr.paranavai.armarios.modelo.Bibliotecario;
+import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
 import java.util.List;
 import org.hibernate.Session;
 
@@ -71,5 +72,10 @@ public class BibliotecarioDaoImpl implements BibliotecarioDao  {
         } catch (Exception e) {
             e.printStackTrace();
       }
+    }
+
+    @Override
+    public void atualizar(Localizacao bibliotecario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
