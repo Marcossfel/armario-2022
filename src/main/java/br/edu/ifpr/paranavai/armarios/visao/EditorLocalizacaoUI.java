@@ -8,6 +8,7 @@ import br.edu.ifpr.paranavai.armarios.controle.LocalizacaoControle;
 import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +22,8 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
      */
     public EditorLocalizacaoUI() {
         initComponents();
+           
+        this.setLocationRelativeTo(null);
         listaDeLocalizacoes = LocalizacaoControle.listarTodasLocalizacoes();
         populaTabela(listaDeLocalizacoes);
     }
@@ -57,11 +60,13 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         panelNovo = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         painelInferior = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLocalizacao = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         painelSuperior.setLayout(new java.awt.BorderLayout());
 
@@ -93,7 +98,28 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
         panelNovo.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
 
         btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
         panelNovo.add(btnNovo);
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        panelNovo.add(btnEditar);
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        panelNovo.add(btnExcluir);
 
         painelSuperior.add(panelNovo, java.awt.BorderLayout.CENTER);
 
@@ -127,15 +153,6 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblLocalizacao.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                tblLocalizacaoAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jScrollPane1.setViewportView(tblLocalizacao);
 
         painelInferior.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -153,16 +170,58 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
         ArrayList<Localizacao> filtrado = new ArrayList<Localizacao>();
         
         for (Localizacao localizacao : listaDeLocalizacoes) {
-            if(localizacao.getNome().contains(txtNome.getText()))
+            if(localizacao.getNome().toUpperCase().contains(txtNome.getText().toUpperCase()))
                 filtrado.add(localizacao);
         }
         
         populaTabela(filtrado);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void tblLocalizacaoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblLocalizacaoAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblLocalizacaoAncestorAdded
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        FormLocalizacaoUI form = new FormLocalizacaoUI();
+        this.setVisible(false);
+        form.setLocationRelativeTo(this);
+        form.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (tblLocalizacao.getSelectedRow() >= 0) {
+            int dadosLinha = tblLocalizacao.getSelectedRow();
+            int codigo = (int) tblLocalizacao.getModel().getValueAt(dadosLinha, 0);
+            FormLocalizacaoUI form = new FormLocalizacaoUI(codigo);
+            this.setVisible(false);            
+            form.setLocationRelativeTo(this);
+            form.setVisible(true);
+            dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Selecione uma Localização!");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (tblLocalizacao.getSelectedRow() >= 0) {
+            int resposta = JOptionPane.showConfirmDialog(null, "Confirma a exclusão da Localização?", "Excluir Localização!", JOptionPane.YES_NO_OPTION);
+
+            if (resposta == 0) {
+                int dadosLinha = tblLocalizacao.getSelectedRow();
+                int codigo = (int) tblLocalizacao.getModel().getValueAt(dadosLinha, 0);
+
+                for (Localizacao localizacao : this.listaDeLocalizacoes) {
+                    if(localizacao.getLocalizacaoId() == codigo)
+                        LocalizacaoControle.excluir(localizacao);
+                }
+                
+                this.listaDeLocalizacoes = LocalizacaoControle.listarTodasLocalizacoes();
+               
+                populaTabela(this.listaDeLocalizacoes);
+
+                JOptionPane.showMessageDialog(null, "Localização Removida!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma Localização!");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +260,8 @@ public class EditorLocalizacaoUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNome;

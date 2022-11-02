@@ -5,7 +5,6 @@
 package br.edu.ifpr.paranavai.armarios.dao;
 
 import br.edu.ifpr.paranavai.armarios.conexao.Conexao;
-import br.edu.ifpr.paranavai.armarios.dao.LocalizacaoDao;
 import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,7 +55,7 @@ public class LocalizacaoDaoRaiz implements LocalizacaoDao{
     }
 
     @Override
-    public void atualizar(Localizacao localizacao) {
+    public Localizacao atualizar(Localizacao localizacao) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
