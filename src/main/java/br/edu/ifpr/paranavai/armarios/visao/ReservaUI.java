@@ -42,7 +42,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Nome = new javax.swing.JTextField();
-        Pesquisa = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
         Data = new javax.swing.JTextField();
         Hora = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -60,6 +60,8 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         Novo = new javax.swing.JButton();
         Salvar = new javax.swing.JButton();
         Sair = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -100,10 +102,10 @@ public class ReservaUI extends javax.swing.JInternalFrame {
             }
         });
 
-        Pesquisa.setText("....");
-        Pesquisa.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisaActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
 
@@ -170,6 +172,15 @@ public class ReservaUI extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Deletar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Editar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,7 +201,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Buscar))
                             .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -208,10 +219,6 @@ public class ReservaUI extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Novo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -222,10 +229,18 @@ public class ReservaUI extends javax.swing.JInternalFrame {
                                         .addGap(88, 88, 88)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Reserva)
-                                    .addComponent(Devolucao))))
+                                    .addComponent(Devolucao)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Novo, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Salvar, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(44, 44, 44)
                         .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +253,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Ra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Pesquisa)
+                    .addComponent(Buscar)
                     .addComponent(jLabel7))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -268,7 +283,11 @@ public class ReservaUI extends javax.swing.JInternalFrame {
                     .addComponent(Novo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         setBounds(300, 20, 658, 500);
@@ -278,7 +297,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeActionPerformed
 
-    private void PesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaActionPerformed
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
 
         if ("20020227585".equals(Ra.getText())){
         pesquisaRa();
@@ -297,7 +316,7 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         Hora.setText(dateFormat.format(data));
         
           
-    }//GEN-LAST:event_PesquisaActionPerformed
+    }//GEN-LAST:event_BuscarActionPerformed
 
     private void DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataActionPerformed
      
@@ -349,8 +368,13 @@ public class ReservaUI extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null,retorno);
     }//GEN-LAST:event_SalvarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
     private javax.swing.JTextField Data;
     private javax.swing.JRadioButton Devolucao;
     private javax.swing.JTextField Hora;
@@ -358,13 +382,14 @@ public class ReservaUI extends javax.swing.JInternalFrame {
     private javax.swing.JButton Novo;
     private javax.swing.JTextField Numero;
     private javax.swing.JTextField Observacoes;
-    private javax.swing.JButton Pesquisa;
     private javax.swing.JTextField Ra;
     private javax.swing.JRadioButton Reserva;
     private javax.swing.JButton Sair;
     private javax.swing.JButton Salvar;
     private javax.swing.JComboBox<String> Status;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -382,7 +407,7 @@ public void novo(){
     Novo.setEnabled(true);
     Numero.setEnabled(true);
     Observacoes.setEnabled(true);
-    Pesquisa.setEnabled(true);
+    Buscar.setEnabled(true);
     Ra.setEnabled(false);
     Salvar.setEnabled(true);
     Status.setEnabled(true);
@@ -399,7 +424,7 @@ public void pesquisaRa(){
     Hora.setEnabled(true);
     Numero.setEnabled(true);
     Observacoes.setEnabled(true);
-    Pesquisa.setEnabled(true);
+    Buscar.setEnabled(true);
     Ra.setEnabled(true);
     Salvar.setEnabled(true);
     Status.setEnabled(true);
@@ -411,7 +436,7 @@ public void pesquisaRa(){
     Hora.setEnabled(true);
     Numero.setEnabled(true);
     Observacoes.setEnabled(true);
-    Pesquisa.setEnabled(true);
+    Buscar.setEnabled(true);
     Ra.setText("20020227585");
     Ra.setEnabled(true);
     Salvar.setEnabled(true);

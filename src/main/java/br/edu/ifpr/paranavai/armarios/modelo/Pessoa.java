@@ -18,7 +18,7 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_pessoa", unique = true, nullable = false)
     private Integer pessoaId;
-    private String nome;
+    String nome;
     private String email;
     private String telefone;
     private String senha;
