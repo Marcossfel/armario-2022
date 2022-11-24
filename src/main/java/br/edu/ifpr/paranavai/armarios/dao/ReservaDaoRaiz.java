@@ -2,6 +2,7 @@
 package br.edu.ifpr.paranavai.armarios.dao;
 
 import br.edu.ifpr.paranavai.armarios.conexao.Conexao;
+import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
 import br.edu.ifpr.paranavai.armarios.modelo.Reserva;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,7 +62,7 @@ public class ReservaDaoRaiz implements ReservaDao {
         
         try {
             reserva.setReservaId(resultado.getInt("id_reserva"));
-            reserva.setEstudante(resultado.getString("estudante"));
+            reserva.setEstudante((Estudante) resultado.getObject("estudante"));
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

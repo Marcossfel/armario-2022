@@ -1,37 +1,36 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
 
-import java.util.Date;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_estudante")
-public class Estudante extends Pessoa{
-    private String ra;
-    
-    
-     private static final long serialVersionUID = 1L;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_estudante", unique = true, nullable = false)
-    private Integer estudanteId;
+@Table(name = "estudante")
+@PrimaryKeyJoinColumn(name="id_pessoa")
+public class Estudante extends Pessoa implements Serializable {
 
-    
+    @Column(name = "ra", unique = true, nullable = false)
+    private String ra;
+
+
     public Estudante() {
     }
 
-
-    public Estudante(String ra, String nome, Integer estudanteId, String nome, String email, String telefone, String senha, boolean ativo, Date dataAtualizacao, Date dataCriacao) {
-        super(nome, email, telefone, senha, ativo, dataAtualizacao, dataCriacao);
+    public Estudante(String ra, String senha) {
         this.ra = ra;
-        this.estudanteId = estudanteId;
+        super.setSenha(senha);
     }
 
+    public Estudante(String ra) {
+        this.ra = ra;
+    }
+
+    public Estudante(String nome, String email, String telefone, String ra, String senha, boolean ativo) {
+        super(nome, email, telefone, senha, ativo);
+        this.ra = ra;
+    }
     public String getRa() {
         return ra;
     }
@@ -40,19 +39,4 @@ public class Estudante extends Pessoa{
         this.ra = ra;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getEstudanteId() {
-        return estudanteId;
-    }
-
-    public void setEstudanteId(Integer estudanteId) {
-        this.estudanteId = estudanteId;
-    }
 }
