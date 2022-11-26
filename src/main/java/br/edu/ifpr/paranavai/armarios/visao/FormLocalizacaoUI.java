@@ -7,7 +7,6 @@ package br.edu.ifpr.paranavai.armarios.visao;
 import br.edu.ifpr.paranavai.armarios.controle.LocalizacaoControle;
 import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
 import br.edu.ifpr.paranavai.armarios.visao.EditorLocalizacaoUI;
-import br.edu.ifpr.paranavai.armarios.visao.EditorLocalizacaoUI;
 import javax.swing.JOptionPane;
 
 /**

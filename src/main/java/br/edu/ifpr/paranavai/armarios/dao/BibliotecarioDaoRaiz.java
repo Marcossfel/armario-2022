@@ -69,7 +69,6 @@ public class BibliotecarioDaoRaiz implements BibliotecarioDao {
      Bibliotecario biblioteca = new Bibliotecario();
         
         try {
-            biblioteca.setBibliotecarioId(resultado.getInt("id_bibliotecario"));
             biblioteca.setNome(resultado.getString("nome"));
         } catch (SQLException ex) {
             ex.printStackTrace();

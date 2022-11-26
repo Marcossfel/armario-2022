@@ -1,5 +1,6 @@
 package br.edu.ifpr.paranavai.armarios.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +13,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-@Entity@Table(name = "pessoa")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,7 +45,6 @@ public class Pessoa {
     @UpdateTimestamp
     private Date dataAtualizacao;
 
-
     public Pessoa() {
     }
 
@@ -55,6 +55,14 @@ public class Pessoa {
         this.senha = senha;
         this.ativo = ativo;
         this.dataAtualizacao = dataAtualizacao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

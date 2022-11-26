@@ -269,7 +269,7 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
                 int codigo = (int) tblEstudante.getModel().getValueAt(dadosLinha, 0);
 
                 for (Estudante estudante : this.listaDeEstudante) {
-                    if(estudante.getEstudanteId() == codigo)
+                    if(estudante.getId() == codigo)
                         EstudanteControle.excluir(estudante);
                 }
                 
@@ -349,7 +349,7 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
         
         for (Estudante estudante : listaEstudante) {
             Object[] dadosLinha = new Object[4];
-            dadosLinha[0] = estudante.getPessoaId();
+            dadosLinha[0] = estudante.getId();
             dadosLinha[1] = estudante.getNome();
             dadosLinha[2] = estudante.getEmail();
             dadosLinha[3] = estudante.getTelefone();
