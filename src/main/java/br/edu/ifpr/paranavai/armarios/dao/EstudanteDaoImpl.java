@@ -41,7 +41,7 @@ private Session sessao;
     }
 
     @Override
-    public void inserir(Estudante estudante) {
+    public Estudante inserir(Estudante estudante) {
            try {
             sessao.beginTransaction();
             sessao.update(estudante);
@@ -49,10 +49,12 @@ private Session sessao;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+           return estudante;
     }
 
     @Override
-    public void atualizar(Estudante estudante) {
+    public Estudante atualizar(Estudante estudante) {
         try {
             sessao.beginTransaction();
             sessao.update(estudante);
@@ -60,6 +62,7 @@ private Session sessao;
         } catch (Exception e) {
             e.printStackTrace();
       }
+        return estudante;
     }
     @Override
     public void excluir(Estudante estudante) {
