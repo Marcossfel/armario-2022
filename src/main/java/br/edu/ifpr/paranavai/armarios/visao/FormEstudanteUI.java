@@ -4,32 +4,32 @@
  */
 package br.edu.ifpr.paranavai.armarios.visao;
 
-import br.edu.ifpr.paranavai.armarios.controle.LocalizacaoControle;
-import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
-import br.edu.ifpr.paranavai.armarios.visao.EditorLocalizacaoUI;
+import br.edu.ifpr.paranavai.armarios.controle.EstudanteControle;
+import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
+import br.edu.ifpr.paranavai.armarios.visao.ExemploEstudanteAula;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author teren
  */
-public class FormLocalizacaoUI extends javax.swing.JFrame {
+public class FormEstudanteUI extends javax.swing.JFrame {
 
-    private Localizacao localizacao;
+    private Estudante estudante;
 
     /**
      * Creates new form FormLocalizacaoUI
      */
-    public FormLocalizacaoUI() {
+    public FormEstudanteUI() {
         initComponents();
-        this.localizacao = new Localizacao();
+        this.estudante= new Estudante ();
     }
 
-    public FormLocalizacaoUI(int codigo) {
+    public FormEstudanteUI(int codigo) {
         initComponents();
-        this.localizacao = LocalizacaoControle.buscarPorId(codigo);
-        panelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da Localização" + this.localizacao.getLocalizacaoId()));
-        txtNome.setText(this.localizacao.getNome());
+        this.estudante = EstudanteControle.buscarPorId(codigo);
+        panelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Estudante" + this.estudante.getId()));
+        txtNome.setText(this.estudante.getNome());
     }
 
     /**
@@ -50,7 +50,7 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
-        panelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da Localização"));
+        panelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Estudante"));
         panelFormulario.setOpaque(false);
 
         lblNome.setText("Nome");
@@ -111,15 +111,17 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
             .addComponent(panelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        panelFormulario.getAccessibleContext().setAccessibleName("Dados Estudante");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if (this.localizacao.getLocalizacaoId() == null) {
+        if (this.estudante.getId() == null) {
             try {
-                this.localizacao.setNome(txtNome.getText());
-                this.localizacao = LocalizacaoControle.inserir(this.localizacao);
-                JOptionPane.showMessageDialog(this, "Localização Salva com Sucesso!!!");
+                this.estudante.setNome(txtNome.getText());
+                this.estudante = EstudanteControle.inserir(this.estudante);
+                JOptionPane.showMessageDialog(this, "Estudante Salvo com Sucesso!!!");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Algo de Errado Aconteceu!!!");
                 e.printStackTrace();
@@ -127,8 +129,8 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
             
         }else {            
             try {
-                this.localizacao.setNome(txtNome.getText());
-                this.localizacao = LocalizacaoControle.atualizar(this.localizacao);
+                this.estudante.setNome(txtNome.getText());
+                this.estudante = EstudanteControle.atualizar(this.estudante);
                 JOptionPane.showMessageDialog(this, "Alterações salvas com Sucesso!!!");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Algo de Errado Aconteceu!!!");
@@ -136,16 +138,16 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
             }
         }
         this.setVisible(false);
-        EditorLocalizacaoUI editorLocalizacaoUI = new EditorLocalizacaoUI();
-        editorLocalizacaoUI.setLocationRelativeTo(null);
-        editorLocalizacaoUI.setVisible(true);
+        ExemploEstudanteAula exemploEstudanteAula = new ExemploEstudanteAula();
+        exemploEstudanteAula.setLocationRelativeTo(null);
+        exemploEstudanteAula.setVisible(true);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
-        EditorLocalizacaoUI editorLocalizacaoUI = new EditorLocalizacaoUI();
-        editorLocalizacaoUI.setLocationRelativeTo(null);
-        editorLocalizacaoUI.setVisible(true);
+        ExemploEstudanteAula exemploEstudanteAula= new ExemploEstudanteAula();
+        exemploEstudanteAula.setLocationRelativeTo(null);
+        exemploEstudanteAula.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -165,20 +167,21 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormLocalizacaoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEstudanteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormLocalizacaoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEstudanteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormLocalizacaoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEstudanteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormLocalizacaoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormEstudanteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormLocalizacaoUI().setVisible(true);
+                new FormEstudanteUI().setVisible(true);
             }
         });
     }

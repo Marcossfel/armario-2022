@@ -14,19 +14,16 @@ public class Estudante extends Pessoa {
     public Estudante() {
     }
 
-    public Estudante(String ra, String senha) {
-        this.ra = ra;
-
-    }
-
     public Estudante(String ra) {
         this.ra = ra;
+
     }
 
-    public Estudante(String nome, String email, String telefone, String ra, String senha, boolean ativo) {
-        super(nome, email, telefone, senha, ativo);
+    public Estudante(String nome, String email, String telefone, String ra) {
+        super(nome, email, telefone);
         this.ra = ra;
     }
+    
 
     public String getRa() {
         return ra;

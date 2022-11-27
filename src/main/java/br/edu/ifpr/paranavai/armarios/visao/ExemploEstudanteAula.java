@@ -5,9 +5,8 @@
 package br.edu.ifpr.paranavai.armarios.visao;
 
 import br.edu.ifpr.paranavai.armarios.controle.EstudanteControle;
-import br.edu.ifpr.paranavai.armarios.controle.LocalizacaoControle;
 import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
-import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
+import br.edu.ifpr.paranavai.armarios.visao.FormEstudanteUI;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,14 +19,36 @@ import javax.swing.table.DefaultTableModel;
 public class ExemploEstudanteAula extends javax.swing.JFrame {
 
     private List<Estudante> listaEstudante;
-    private Iterable<Estudante> listaDeEstudante;
+    
+   
+    
     /**
      * Creates new form ExemploLocalizacaoAula
      */
     public ExemploEstudanteAula() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
         this.listaEstudante = EstudanteControle.listarTodasEstudantes();
         populaCorreto(this.listaEstudante);
+    }
+    
+    private void populaCorreto(List<Estudante> lista) {
+        DefaultTableModel modeloDeColunasDaTabela = (DefaultTableModel) tblEstudante.getModel();
+        
+        while (modeloDeColunasDaTabela.getRowCount() != 0) {
+            modeloDeColunasDaTabela.removeRow(0);
+        }
+        
+       for (int i = 0; i < lista.size(); i++) {
+            Estudante mostraEstudante = lista.get(i);
+            Object[] dadosLinha = new Object[4];
+            dadosLinha[0] = mostraEstudante.getId();
+            dadosLinha[1] = mostraEstudante.getNome();
+            dadosLinha[2] = mostraEstudante.getEmail();
+            dadosLinha[3] = mostraEstudante.getTelefone();
+            modeloDeColunasDaTabela.addRow(dadosLinha);
+        }
     }
 
     /**
@@ -39,60 +60,25 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         painelSuperior = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelBusca = new javax.swing.JPanel();
+        lblNome = new javax.swing.JLabel();
         txtFiltro = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        btnEdite = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        panelNovo = new javax.swing.JPanel();
+        btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         painelInferior = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEstudante = new javax.swing.JTable();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 126, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelSuperior.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Nome:");
+        lblNome.setText("Nome:");
 
         txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,50 +86,50 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBuscaLayout = new javax.swing.GroupLayout(panelBusca);
+        panelBusca.setLayout(panelBuscaLayout);
+        panelBuscaLayout.setHorizontalGroup(
+            panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscaLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        panelBuscaLayout.setVerticalGroup(
+            panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(panelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome)
                     .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnBuscar))
                 .addContainerGap())
         );
 
-        painelSuperior.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+        painelSuperior.add(panelBusca, java.awt.BorderLayout.PAGE_START);
 
-        jButton2.setText("Novo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
 
-        btnEdite.setText("Editar");
-        btnEdite.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditeActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -154,31 +140,31 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelNovoLayout = new javax.swing.GroupLayout(panelNovo);
+        panelNovo.setLayout(panelNovoLayout);
+        panelNovoLayout.setHorizontalGroup(
+            panelNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNovoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEdite, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        panelNovoLayout.setVerticalGroup(
+            panelNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNovoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnEdite)
+                .addGroup(panelNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovo)
+                    .addComponent(btnEditar)
                     .addComponent(btnExcluir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        painelSuperior.add(jPanel5, java.awt.BorderLayout.CENTER);
+        painelSuperior.add(panelNovo, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(painelSuperior, java.awt.BorderLayout.PAGE_START);
 
@@ -228,59 +214,61 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFiltroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        List<Estudante> listaAtualizada = new ArrayList<>();
-        for(int i = 0; i < this.listaEstudante.size(); i++) {
-            if(this.listaEstudante.get(i).getNome().contains(txtFiltro.getText())) {
-                listaAtualizada.add(this.listaEstudante.get(i));
-            } else if(this.listaEstudante.get(i).getTelefone().contains(txtFiltro.getText())) {
-                listaAtualizada.add(this.listaEstudante.get(i));
-            } else if(this.listaEstudante.get(i).getEmail().contains(txtFiltro.getText())) {
-                listaAtualizada.add(this.listaEstudante.get(i));
-            }
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        ArrayList<Estudante> filtro = new ArrayList<Estudante>();
+        for (Estudante estudante : listaEstudante) {
+            if(estudante.getNome().toUpperCase().contains(txtFiltro.getText().toUpperCase()))
+                filtro.add(estudante);
+        
         }
-        this.populaCorreto(listaAtualizada);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        populaCorreto(filtro);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+   
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnEditeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditeActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        FormEstudanteUI form = new FormEstudanteUI();
+        this.setVisible(false);
+        form.setLocationRelativeTo(this);
+        form.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
             if (tblEstudante.getSelectedRow() >= 0) {
             int dadosLinha = tblEstudante.getSelectedRow();
             int codigo = (int) tblEstudante.getModel().getValueAt(dadosLinha, 0);
-            FormLocalizacaoUI form = new FormLocalizacaoUI(codigo);
+            FormEstudanteUI form = new FormEstudanteUI(codigo);
             this.setVisible(false);            
             form.setLocationRelativeTo(this);
             form.setVisible(true);
             dispose();
         }else {
-            JOptionPane.showMessageDialog(null, "Selecione uma Localização!");
+            JOptionPane.showMessageDialog(null, "Selecione um Estudante!");
         }
-    }//GEN-LAST:event_btnEditeActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
       if (tblEstudante.getSelectedRow() >= 0) {
-            int resposta = JOptionPane.showConfirmDialog(null, "Confirma a exclusão da Localização?", "Excluir Localização!", JOptionPane.YES_NO_OPTION);
+            int resposta = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do Estudante?", "Excluir Estudante!", JOptionPane.YES_NO_OPTION);
 
             if (resposta == 0) {
                 int dadosLinha = tblEstudante.getSelectedRow();
                 int codigo = (int) tblEstudante.getModel().getValueAt(dadosLinha, 0);
 
-                for (Estudante estudante : this.listaDeEstudante) {
+                for (Estudante estudante : this.listaEstudante) {
                     if(estudante.getId() == codigo)
                         EstudanteControle.excluir(estudante);
                 }
                 
-                this.listaDeEstudante = EstudanteControle.listarTodosEstudantes();
+                this.listaEstudante = EstudanteControle.listarTodasEstudantes();
                
-                populaTabela(this.listaDeEstudante);
+                populaCorreto(this.listaEstudante);
 
-                JOptionPane.showMessageDialog(null, "Localização Removida!");
+                JOptionPane.showMessageDialog(null, "Estudante Removido!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione uma Localização!");
+            JOptionPane.showMessageDialog(null, "Selecione um Estudante!");
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -323,43 +311,21 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEdite;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JButton btnNovo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JPanel painelInferior;
     private javax.swing.JPanel painelSuperior;
+    private javax.swing.JPanel panelBusca;
+    private javax.swing.JPanel panelNovo;
     private javax.swing.JTable tblEstudante;
     private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 
-    private void populaCorreto(List<Estudante> listaEstudante) {
-        DefaultTableModel modeloDeColunasDaTabela = (DefaultTableModel) tblEstudante.getModel();
-        
-        while (modeloDeColunasDaTabela.getRowCount() != 0) {
-            modeloDeColunasDaTabela.removeRow(0);
-        }
-        
-        for (Estudante estudante : listaEstudante) {
-            Object[] dadosLinha = new Object[4];
-            dadosLinha[0] = estudante.getId();
-            dadosLinha[1] = estudante.getNome();
-            dadosLinha[2] = estudante.getEmail();
-            dadosLinha[3] = estudante.getTelefone();
-            modeloDeColunasDaTabela.addRow(dadosLinha);
-        }
-    }
-
-    private void populaTabela(Iterable<Estudante> listaDeEstudante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
+ 
     
 }

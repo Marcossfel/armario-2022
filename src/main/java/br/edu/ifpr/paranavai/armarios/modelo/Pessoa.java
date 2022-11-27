@@ -22,7 +22,7 @@ public abstract class Pessoa implements Serializable {
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @Column(name = "email", unique = true)
@@ -31,7 +31,7 @@ public abstract class Pessoa implements Serializable {
     @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "senha", nullable = false)
+    /*@Column(name = "senha", nullable = false)
     private String senha;
 
     @Column(name = "ativo", nullable = false)
@@ -43,18 +43,18 @@ public abstract class Pessoa implements Serializable {
 
     @Column(name = "data_atualizacao", nullable = false)
     @UpdateTimestamp
-    private Date dataAtualizacao;
+    private Date dataAtualizacao;*/
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String email, String telefone, String senha, boolean ativo) {
+    public Pessoa(String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.senha = senha;
+        /*this.senha = senha;
         this.ativo = ativo;
-        this.dataAtualizacao = dataAtualizacao;
+        this.dataAtualizacao = dataAtualizacao;*/
     }
 
     public Long getId() {
@@ -89,7 +89,7 @@ public abstract class Pessoa implements Serializable {
         this.telefone = telefone;
     }
 
-    public String getSenha() {
+    /*public String getSenha() {
         return senha;
     }
 
@@ -119,6 +119,6 @@ public abstract class Pessoa implements Serializable {
 
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
-    }
+    }*/
 
 }

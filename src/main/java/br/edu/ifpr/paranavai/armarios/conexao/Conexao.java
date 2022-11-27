@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class Conexao {
     private final static String URL = "jdbc:mysql://localhost/emprestimo"; 
     private final static String USUARIO = "root";
-    private final static String SENHA = "";
+    private final static String SENHA = "root";
     private static Connection conexao = null;
     
     private Conexao() throws SQLException{

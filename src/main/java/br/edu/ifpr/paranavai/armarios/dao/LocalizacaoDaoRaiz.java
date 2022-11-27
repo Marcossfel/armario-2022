@@ -66,7 +66,7 @@ public class LocalizacaoDaoRaiz implements LocalizacaoDao{
         Localizacao local = new Localizacao();
         
         try {
-            local.setLocalizacaoId(resultado.getInt("id_localizaacao"));
+            local.setLocalizacaoId(resultado.getInt("id_localizacao"));
             local.setNome(resultado.getString("nome"));
         } catch (SQLException ex) {
             ex.printStackTrace();

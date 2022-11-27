@@ -1,8 +1,5 @@
 package br.edu.ifpr.paranavai.armarios.servico;
 
-import br.edu.ifpr.paranavai.armarios.modelo.Localizacao;
-import br.edu.ifpr.paranavai.armarios.dao.LocalizacaoDao;
-import br.edu.ifpr.paranavai.armarios.dao.LocalizacaoDaoImpl;
 import br.edu.ifpr.paranavai.armarios.dao.EstudanteDaoImpl;
 import br.edu.ifpr.paranavai.armarios.modelo.Estudante;
 import java.util.List;
@@ -24,8 +21,8 @@ public class EstudanteServico {
         return dao.inserir(estudante);
     }
 
-    public static void atualizar(Estudante estudante) {
-        dao.atualizar(estudante);
+    public static Estudante atualizar(Estudante estudante) {
+        return dao.atualizar(estudante);
     }
 
     public static void excluir(Estudante estudante) {

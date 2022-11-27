@@ -10,22 +10,19 @@ public class EstudanteControle {
     }
 
     public static void excluir(Estudante estudante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public static Iterable<Estudante> listarTodosEstudantes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        EstudanteServico.excluir(estudante);
     }
 
     public static Estudante buscarPorId(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         return  EstudanteServico.buscarPorId(codigo);
     }
 
     public static Estudante atualizar(Estudante estudante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return EstudanteServico.atualizar(estudante);
     }
+    
 
     public static Estudante inserir(Estudante estudante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return EstudanteServico.inserir(estudante);
     }
 }
