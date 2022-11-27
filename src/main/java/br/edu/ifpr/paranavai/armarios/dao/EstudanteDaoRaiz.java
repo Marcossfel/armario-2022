@@ -64,7 +64,8 @@ public class EstudanteDaoRaiz implements EstudanteDao {
         Estudante estudante = new Estudante();
         
         try {
-            
+            estudante.setId(resultado.getInt("id"));
+            estudante.setRa(resultado.getString("Ra"));
             estudante.setNome(resultado.getString("nome"));
             estudante.setEmail(resultado.getString("email"));
             estudante.setTelefone(resultado.getString("telefone"));

@@ -20,7 +20,7 @@ public abstract class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -57,11 +57,11 @@ public abstract class Pessoa implements Serializable {
         this.dataAtualizacao = dataAtualizacao;*/
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
