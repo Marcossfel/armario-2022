@@ -10,7 +10,10 @@ public class TesteHibernate {
         sessao.beginTransaction();
         Localizacao local = new Localizacao("Biblioteca");
         
+        
+        
         sessao.save(local);
+        
         
         sessao.getTransaction().commit();
         HibernateUtil.encerraSession();

@@ -157,6 +157,9 @@ public class FormEstudanteUI extends javax.swing.JFrame {
         if (this.estudante.getId() == null) {
             try {
                 this.estudante.setNome(txtNome.getText());
+                this.estudante.setRa(txtRa.getText());
+                this.estudante.setTelefone(txtTelefone.getText());
+                this.estudante.setEmail(txtEmail.getText());
                 this.estudante = EstudanteControle.inserir(this.estudante);
                 JOptionPane.showMessageDialog(this, "Estudante Salvo com Sucesso!!!");
             } catch (Exception e) {
@@ -167,6 +170,9 @@ public class FormEstudanteUI extends javax.swing.JFrame {
         }else {            
             try {
                 this.estudante.setNome(txtNome.getText());
+                this.estudante.setRa(txtRa.getText());
+                this.estudante.setTelefone(txtTelefone.getText());
+                this.estudante.setEmail(txtEmail.getText());
                 this.estudante = EstudanteControle.atualizar(this.estudante);
                 JOptionPane.showMessageDialog(this, "Alterações salvas com Sucesso!!!");
             } catch (Exception e) {

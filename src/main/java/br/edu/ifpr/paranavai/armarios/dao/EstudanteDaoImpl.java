@@ -44,7 +44,7 @@ private Session sessao;
     public Estudante inserir(Estudante estudante) {
            try {
             sessao.beginTransaction();
-            sessao.update(estudante);
+            sessao.persist(estudante);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ private Session sessao;
     public void excluir(Estudante estudante) {
         try {
             sessao.beginTransaction();
-            sessao.update(estudante);
+            sessao.delete(estudante);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

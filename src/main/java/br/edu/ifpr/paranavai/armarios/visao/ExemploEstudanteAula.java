@@ -42,11 +42,12 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
         
        for (int i = 0; i < lista.size(); i++) {
             Estudante mostraEstudante = lista.get(i);
-            Object[] dadosLinha = new Object[4];
+            Object[] dadosLinha = new Object[5];
             dadosLinha[0] = mostraEstudante.getId();
             dadosLinha[1] = mostraEstudante.getNome();
             dadosLinha[2] = mostraEstudante.getEmail();
             dadosLinha[3] = mostraEstudante.getTelefone();
+            dadosLinha[4] = mostraEstudante.getRa();
             modeloDeColunasDaTabela.addRow(dadosLinha);
         }
     }
@@ -74,7 +75,6 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
         tblEstudante = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         painelSuperior.setLayout(new java.awt.BorderLayout());
 
@@ -173,20 +173,21 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
         tblEstudante.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tblEstudante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "R.A", "Nome", "Email", "Telefone"
+                "Id", "Nome", "Email", "Telefone", "R.a"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -250,7 +251,7 @@ public class ExemploEstudanteAula extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
       if (tblEstudante.getSelectedRow() >= 0) {
-            int resposta = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do Estudante?", "Excluir Estudante!", JOptionPane.YES_NO_OPTION);
+            int resposta = JOptionPane.showConfirmDialog(null, "Confirmar a exclusão do Estudante?", "Excluir Estudante!", JOptionPane.YES_NO_OPTION);
 
             if (resposta == 0) {
                 int dadosLinha = tblEstudante.getSelectedRow();

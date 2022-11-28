@@ -117,6 +117,7 @@ public class FormLocalizacaoUI extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if (this.localizacao.getLocalizacaoId() == null) {
             try {
+                
                 this.localizacao.setNome(txtNome.getText());
                 this.localizacao = LocalizacaoControle.inserir(this.localizacao);
                 JOptionPane.showMessageDialog(this, "Localização Salva com Sucesso!!!");
